@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 
+
 def get_file(url, directory):
     """A function to download and unzip files."""
     print('Uploading', url, 'file to', '"' + directory + '"')
@@ -58,20 +59,17 @@ def parse_links():
             try:
                 os.makedirs(directory)
             except OSError:
-                logging.critical('Check folder permissions for dir:', directory)
+                logging.critical('Check folder permissions for dir:{}'.format(
+                                 directory))
                 return
         try:
-            for link in
-             BeautifulSoup(requests.post(app, data=payload).text,
-                           'html.parser').
-             find('table', {'id': 'ResultsTable'}).
-             find_all('a'):
-             if not
-             os.path.isfile(directory + '/' +
-                            'datafeeds\\' +
-                            os.path.splitext(link.
-                                             string)[0]):
-             get_file(link['href'], directory)
+            for link in BeautifulSoup(requests.post(app, data=payload).text,
+                                      'html.parser').\
+                                      find('table', {'id': 'ResultsTable'}).\
+                                      find_all('a'):
+                if not os.path.isfile(directory + '/' + 'datafeeds\\' +
+                                      os.path.splitext(link.string)[0]):
+                    get_file(link['href'], directory)
         except requests.exceptions.ConnectionError:
             logging.critical('Check internet/server connection!')
             exit(1)
