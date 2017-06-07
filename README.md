@@ -1,6 +1,7 @@
 # USA Spendings Data Scraper
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe1d15a69a414753a62ad6e01fb9ee51)](https://www.codacy.com/app/Rotzke/usaspending?utm_source=github.com&utm_medium=referral&utm_content=Rotzke/usaspending&utm_campaign=badger)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Parsing statistics from the official website into CSV file.
 
